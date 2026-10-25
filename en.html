@@ -6092,7 +6092,7 @@ function terrain(cur){
   const P = D.terrain.points, W = 320, H0 = 96, pad = 14;
   const LAST = 21;
   const x = c => pad + (c - 1) / Math.max(1, LAST - 1) * (W - pad * 2);
-  const y = v => 10 + v / 100 * (H0 - 26);
+  const y = v => 10 + (100 - v) / 100 * (H0 - 26);
   let d = `M ${x(1)} ${y(40)}`;
   P.forEach(p => { d += ` L ${x(p[0]).toFixed(1)} ${y(p[1]).toFixed(1)}`; });
   d += ` L ${x(LAST)} ${y(P.length ? P[P.length - 1][1] : 30)}`;
