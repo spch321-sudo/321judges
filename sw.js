@@ -1,10 +1,9 @@
 /* 321士師記講義 · Service Worker（離線可用）
    版本字串在每次 make_site.py 重新打包時都會變，
    一變就會清掉舊快取、重新抓一份新的，使用者不必手動清除。 */
-const V = '士師記-5798e537c6c8';
+const V = '士師記-5798e537c6c8-co1';
 const SHELL = [
-  './', './index.html', './en.html', './sc.html', './manifest.webmanifest', './manifest-en.webmanifest', './icon-192.png', './icon-512.png', './icon-180.png', './icon-167.png', './icon-152.png', './icon-120.png', './icon-64.png', './favicon.ico',
-];
+  './', './index.html', './en.html', './sc.html', './manifest.webmanifest', './manifest-en.webmanifest', './icon-192.png', './icon-512.png', './icon-180.png', './icon-167.png', './icon-152.png', './icon-120.png', './icon-64.png', './favicon.ico', './coread.js', './peerjs.min.js'];
 self.addEventListener('install', e => {
   self.skipWaiting();
   e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).catch(() => {}));
